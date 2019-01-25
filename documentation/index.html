@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A2 admin - Documentation</title>
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <!-- Plagins CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div class="page-wrap">
+		<div class="main-menu">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<div class="navbar-header-wrap">
+						<img src="img/logo.png" width="68" height="50" alt="Logo">
+						<span class="logo-text">admin</span>
+					</div>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#started">Getting started</a></li>
+						<li><a href="#cli">Using CLI</a></li>
+						<li><a href="#customization">Customization</a></li>
+						<li><a href="#routing">Routing and main menu</a></li>
+						<li><a href="#rtl">RTL support</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		
+		<div class="content-wrap">
+			<div class="container-fluid">
+				<section id="introduction" class="section">
+					<h2 class="section-title">Introduction</h2>
+
+					<p><strong>A2 admin</strong> is an Angular admin dashboard template. It is fully responsive admin dashboard template
+						built with Angular, Bootstrap 4, HTML5 and CSS3. It has a huge collection of reusable UI components and integrated
+						with Angular Material. It can be used for all type of web applications like custom admin panel, project management
+						system, admin dashboard, application backend, CMS or CRM. We're constantly adding new features, improving existing
+						ones and taking into consideration customers feedback.</p>
+					<h5>Features:</h5>
+					<ul>
+						<li>Responsive layout (desktops, tablets, mobile devices) </li>
+						<li>Angular 6+ – Fast Single Page Application</li>
+						<li>Include 10+ extra pages (404, Login, Register...)</li>
+						<li>Charts</li>
+						<li>Maps (Google, Leaflet)</li>
+						<li>Tables</li>
+						<li>Calendar</li>
+						<li>Angular Material components</li>
+						<li>A2 admin components</li>
+						<li>Widgets</li>
+					</ul>
+				</section><!-- .section -->
+
+				<section id="started" class="section">
+					<h2 class="section-title">Getting started</h2>
+
+					<p>This template is built with <i>angular-cli</i> and requires <i>Node(v8.11.2+)</i> and <i>NPM(v5.6.0+)</i> to be installed.</p>
+					<h5>Installing the prerequisites</h5>
+					<p><strong>Node.js and NPM:</strong> You can download Node.js from <a href="https://nodejs.org">https://nodejs.org</a>.
+						NPM comes bundled with Node.js</p>
+					<p><strong>angular-cli:</strong> You can install angular-cli by executing from your terminal <code>npm install -g @angular/cli</code>.
+						More details can be found here <a href="https://github.com/angular/angular-cli">https://github.com/angular/angular-cli</a> </p>
+					<h5>Installing the npm packages</h5>
+					<p>Before preceding you'll need to install npm packages. You can do this by running <code>npm install</code> from
+						the root of your project to install all the necessary dependencies.</p>
+				</section><!-- .section -->
+
+				<section id="cli" class="section">
+					<h2 class="section-title">Using CLI</h2>
+
+					<h5>Development server</h5>
+					<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically
+						reload if you change any of the source files.</p>
+					<h5>Code scaffolding</h5>
+					<p>Run <code>ng generate component component-name</code> to generate a new component.</p>
+					<h5>Publish</h5>
+					<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory.
+						Use the <code>-prod</code> flag for a production build. Use <code>--aot</code> flag for a AoT build.</p>
+					<h5>Further help</h5>
+					<p>To get more help on the <code>angular-cli</code> use <code>ng --help</code> or go check out
+						<a href="https://github.com/angular/angular-cli">https://github.com/angular/angular-cli</a>.</p>
+				</section><!-- .section -->
+
+				<section id="customization" class="section">
+					<h2 class="section-title">Customization</h2>
+
+					<p>Main css file is compiled with Sass, all Sass files you can find in this folder <code>src/app/assets/sass</code>
+						and main scss file "style.scss" is located in <code>src/app/assets/sass</code>. You can change main slyles from file
+						<code>src/app/assets/sass/_variable.scss</code>.</p>
+				</section><!-- .section -->
+
+				<section id="routing" class="section">
+					<h2 class="section-title">Routing and main menu</h2>
+
+					<h5>Routing</h5>
+					<p>Router file <code>src/app/app-routing.module.ts</code>.</p>
+					<h5>Main menu</h5>
+					<p>Main menu configuration file <code>src/app/a2-components/main-menu/mock-main-menu-items.ts</code>.</p>
+				</section><!-- .section -->
+
+				<section id="rtl" class="section">
+					<h2 class="section-title">RTL support</h2>
+
+					<p>If you can use RTL, change <code>rtl: boolean = false;</code> to <code>rtl: boolean = true;</code> in layout file <code>\src\app\layouts\...</code> and add attribute <code>dir="rtl"</code> to <code>body</code>.</p>
+				</section><!-- .section -->
+			</div>
+		</div>
+	</div>
+
+<!--[if (!IE)|(gt IE 8)]><!-->
+  <script src="js/jquery-2.1.3.min.js"></script>
+<!--<![endif]-->
+
+<!--[if lte IE 8]>
+  <script src="js/jquery-1.9.1.min.js"></script>
+<![endif]-->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
