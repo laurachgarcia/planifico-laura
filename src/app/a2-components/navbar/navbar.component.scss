@@ -420,3 +420,54 @@
     }
   }
 }
+.nav li ul {
+  display:none;
+  position:absolute;
+  min-width:140px;
+}
+
+.nav li:hover > ul {
+  display:block;
+}
+
+.nav li ul li {
+  align-items: center;
+  color: #fff;
+  padding: 8px;
+  min-width: 140px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  background: #3c4e62;
+  right: 180px;
+  top: -38px;
+  border-bottom: 1px solid rgba(#fff,.05);
+}
+
+.nav li ul li ul {
+  list-style-type: none;
+  margin: 0;
+  max-height: 241px;
+  overflow: auto;
+  padding: 0;
+
+}
+.nav li ul li a {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  padding: 0px;
+  transition: background .2s $animation;
+  .fa {
+    margin-right: 11px;
+    min-width: 15px;
+
+    .rtl & {
+      margin-left: 11px;
+      margin-right: 0;
+    }
+  }
+}
+.align-right {
+  margin: 0 0 0 60%;
+}
