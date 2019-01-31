@@ -14,21 +14,32 @@
     "title": "Dashboards",
     "icon": "fa fa-home",
     "active": false,
+    "groupTitle" : false,
+    "sub": "",
+    "routing": "/default-layout/dashboard",
+    "externalLink": "",
+    "budge": "",
+    "budgeColor": ""
+  },
+  {
+    "title": "Personal",
+    "icon": "fa fa-child",
+    "active": false,
     "groupTitle": false,
     "sub": [
       {
-        "title": "Dashboard 1",
-        "routing": "/default-layout/dashboard"
+        "title": "Management",
+        "routing": "/default-layout/button"
       },
       {
-        "title": "Dashboard 2",
-        "routing": "/default-layout/dashboard-2"
+        "title": "Assistance",
+        "routing": "/default-layout/card"
       }
     ],
-    "routing": "/default-layout/dashboard",
+    "routing": "",
     "externalLink": "",
-    "budge": "2",
-    "budgeColor": "#f44236"
+    "budge": "",
+    "budgeColor": ""
   },
   {
     "title": "Widgets",
@@ -62,6 +73,26 @@
     "externalLink": "",
     "budge": "",
     "budgeColor": ""
+  },
+  {
+    "title": "Dashboards-Example",
+    "icon": "fa fa-home",
+    "active": false,
+    "groupTitle": false,
+    "sub": [
+      {
+        "title": "Dashboard 1",
+        "routing": "/default-layout/dashboard"
+      },
+      {
+        "title": "Dashboard 2",
+        "routing": "/default-layout/dashboard-2"
+      }
+    ],
+    "routing": "/default-layout/dashboard",
+    "externalLink": "",
+    "budge": "2",
+    "budgeColor": "#f44236"
   },
   {
     "title": "Material components",

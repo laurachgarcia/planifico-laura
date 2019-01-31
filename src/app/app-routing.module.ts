@@ -67,7 +67,8 @@ import { PageFormValidationComponent }  from './pages/forms/form-validation/form
 import { PageGoogleMapComponent }       from './pages/maps/google-map/google-map.component';
 import { PageLeafletMapComponent }      from './pages/maps/leaflet-map/leaflet-map.component';
 import { PageWidgetsComponent }         from './pages/widgets/widgets.component';
-import {ListComponent} from "./pages/users/list/list.component";
+import { ListComponent }                from "./pages/users/list/list.component";
+import { CompaniesComponent }           from './pages/companies/companies.component';
 
 const defaultRoutes: Routes = [
   { path: 'dashboard', component: PageDashboardComponent },
@@ -123,6 +124,7 @@ const defaultRoutes: Routes = [
   { path: 'form-validation', component: PageFormValidationComponent },
   { path: 'google-map', component: PageGoogleMapComponent },
   { path: 'leaflet-map', component: PageLeafletMapComponent },
+  { path: 'companies', component: CompaniesComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -139,7 +141,7 @@ const extraRoutes: Routes = [
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/default-layout/dashboard',
+    redirectTo: '/extra-layout/sign-in',
     pathMatch: 'full'
   },
   {

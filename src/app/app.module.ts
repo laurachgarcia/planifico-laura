@@ -66,6 +66,7 @@ import {PageTypographyComponent} from './pages/typography/typography.component';
 import {PageNotFoundComponent} from './pages/not-found/not-found.component';
 
 //Extra pages
+
 import {PageSignIn1Component} from './pages/extra-pages/sign-in-1/sign-in-1.component';
 import {PageSignIn2Component} from './pages/extra-pages/sign-in-2/sign-in-2.component';
 import {PageSignIn3Component} from './pages/extra-pages/sign-in-3/sign-in-3.component';
@@ -105,6 +106,7 @@ import {ListComponent} from "./pages/users/list/list.component";
 import {AddUserComponent} from "./pages/users/add-user/add-user.component";
 import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
+import { CompaniesComponent } from './pages/companies/companies.component';
 
 @NgModule({
     imports: [
@@ -208,13 +210,15 @@ import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.compone
         ListComponent,
         AddUserComponent,
         EditUserComponent,
-        DeleteUserComponent
+        DeleteUserComponent,
+        CompaniesComponent
     ],
     exports: [
         MaterialModule
     ],
     entryComponents: [DialogResultComponent, CalendarDialogComponent, AddUserComponent, EditUserComponent, DeleteUserComponent],
     bootstrap: [AppComponent]
+
 })
 
 export class AppModule {
