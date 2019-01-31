@@ -42,6 +42,17 @@
     "budgeColor": ""
   },
   {
+    "title": "Calendar",
+    "icon": "fa fa-calendar",
+    "active": false,
+    "groupTitle" : false,
+    "sub": "",
+    "routing": "/default-layout/calendar",
+    "externalLink": "",
+    "budge": "",
+    "budgeColor": "#008000"
+  },
+  {
     "title": "Widgets",
     "icon": "fa fa-th",
     "active": false,
@@ -51,17 +62,6 @@
     "externalLink": "",
     "budge": "",
     "budgeColor": ""
-  },
-  {
-    "title": "Calendar",
-    "icon": "fa fa-calendar",
-    "active": false,
-    "groupTitle" : false,
-    "sub": "",
-    "routing": "/default-layout/calendar",
-    "externalLink": "",
-    "budge": "New",
-    "budgeColor": "#008000"
   },
   {
     "title": "UI Elements",
@@ -75,7 +75,7 @@
     "budgeColor": ""
   },
   {
-    "title": "Dashboards-Example",
+    "title": "Dashboards-UI",
     "icon": "fa fa-home",
     "active": false,
     "groupTitle": false,
