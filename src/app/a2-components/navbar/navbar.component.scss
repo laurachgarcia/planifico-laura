@@ -137,7 +137,7 @@
         ::ng-deep {
           .mat-icon-button,
           .mat-button {
-          //color: rgba(#000,.3);
+            //color: rgba(#000,.3);
             cursor: pointer;
             min-width: 44px;
             padding: 0;
@@ -397,8 +397,8 @@
           ~ .items-overlay {
             opacity: 1;
             transition:
-              .2s opacity 0s $animation,
-              0s visibility 0s $animation;
+                    .2s opacity 0s $animation,
+                    0s visibility 0s $animation;
             visibility: visible;
           }
         }
@@ -411,8 +411,8 @@
         position: fixed;
         top: 0;
         transition:
-          .2s opacity 0s $animation,
-          0s visibility .2s $animation;
+                .2s opacity 0s $animation,
+                0s visibility .2s $animation;
         visibility: hidden;
         width: 100%;
         z-index: 9998;
@@ -468,6 +468,11 @@
     }
   }
 }
+
+.nav li ul li:hover {
+  background: #5dade0;
+}
+
 .align-right {
   margin: 0 0 0 60%;
 }
