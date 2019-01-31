@@ -101,6 +101,7 @@ import { PageLeafletMapComponent }          from './pages/maps/leaflet-map/leafl
 import { PageWidgetsComponent }             from './pages/widgets/widgets.component';
 import { FooterComponent }                  from './a2-components/footer/footer.component';
 import { AdditionNavbarComponent }          from './a2-components/addition-navbar/addition-navbar.component';
+import { CompaniesComponent }               from './pages/companies/companies.component';
 
 @NgModule({
   imports: [
@@ -122,7 +123,7 @@ import { AdditionNavbarComponent }          from './a2-components/addition-navba
     AppComponent,
     DefaultLayoutComponent,
 		ExtraLayoutComponent,
-		
+
     NavbarComponent,
     SidebarComponent,
     LogoComponent,
@@ -200,7 +201,8 @@ import { AdditionNavbarComponent }          from './a2-components/addition-navba
     PageLeafletMapComponent,
     PageWidgetsComponent,
     FooterComponent,
-    AdditionNavbarComponent
+    AdditionNavbarComponent,
+    CompaniesComponent
 	],
 	exports: [
 		MaterialModule
