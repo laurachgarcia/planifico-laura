@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CustomValidators} from "ng2-validation";
+import {UsersService} from "../users.service";
+import {EventsManagerService} from "../../../global-service/internal-events/events-manager.service";
+import {MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-add-user',
@@ -6,10 +11,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
-
-  constructor() { }
+    public form: FormGroup;
+  constructor(private dialogRef: MatDialogRef<AddUserComponent>,
+              private fb: FormBuilder,
+              private  service: UsersService,
+              private events: EventsManagerService) { }
 
   ngOnInit() {
+    this.initForm();
   }
+
+  initForm() {
+      this.form = this.fb.group({
+          name: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+          email: [null, Validators.compose([Validators.required, CustomValidators.email])],
+      });
+  }
+
+  save(form) {
+    console.log(form);
+      this.service.save(form).subscribe(
+          (item) => {
+             console.log('GUARDÓ');
+              this.events.publish('changed-usuario', null);
+              this.dialogRef.close(this.form.value);
+          }
+      );
+  }
+
+    close() {
+        this.dialogRef.close();
+    }
 
 }

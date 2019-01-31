@@ -20,17 +20,13 @@ export class UsersService {
 
   save(user: IUser) {
     return this.api.post('api/users', user);
-      // .pipe(tap((d) => (this.events.publish(`changed-${this.endpoint}`, d))));
   }
 
-  update(user: IUser) {
-    console.log(user);
-    return this.api.put(`api/users/${user.id}`, user);
-      // .pipe(tap((d) => (this.events.publish(`changed-${this.endpoint}`, d))));
+  update(data, id) {
+    return this.api.put(`api/users/${id}`, data);
   }
 
   delete(user: number) {
     return this.api.delete(`api/users/${user}`);
-      // .pipe(tap((d) => (this.events.publish(`changed-${this.endpoint}`, d))));
   }
 }

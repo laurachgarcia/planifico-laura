@@ -10,28 +10,35 @@
 <mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="userId">
-        <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container matColumnDef="progress">
+    <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="userName">
-        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
     </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="created_at">
+        <mat-header-cell *matHeaderCellDef> Date Create </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.created_at}} </mat-cell>
+    </ng-container>
+
     <!-- Name Column -->
     <ng-container matColumnDef="options">
-        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
         <mat-cell *matCellDef="let row">
-            <button mat-icon-button><mat-icon>mode_edit</mat-icon></button>
-            <button mat-icon-button color="warn"><mat-icon>delete_forever</mat-icon></button>
+            <button mat-icon-button (click)="openEdit(row)"><mat-icon>mode_edit</mat-icon></button>
+            <button mat-icon-button (click)="openDelete(row)" color="warn"><mat-icon>delete_forever</mat-icon></button>
         </mat-cell>
     </ng-container>
 
@@ -39,6 +46,10 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
 
-<mat-paginator
+<mat-paginator *ngIf="dataSource"
+        #paginator
+        [length]="dataSource.length"
+        [pageIndex]="0"
+        [pageSize]="10"
         [pageSizeOptions]="[5, 10, 25, 100]"
 ></mat-paginator>
