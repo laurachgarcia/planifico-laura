@@ -107,6 +107,7 @@ import {AddUserComponent} from "./pages/users/add-user/add-user.component";
 import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
 import { CompaniesComponent } from './pages/companies/companies.component';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
     imports: [
@@ -117,6 +118,7 @@ import { CompaniesComponent } from './pages/companies/companies.component';
         BrowserAnimationsModule,
         AppRoutingModule,
         ChartsModule,
+        ToastrModule.forRoot(),
         CalendarModule.forRoot(),
         MaterialModule,
         AgmCoreModule.forRoot({

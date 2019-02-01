@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {UsersService} from '../users.service';
 import {EventsManagerService} from '../../../global-service/internal-events/events-manager.service';
 import {Subscription} from 'rxjs';
@@ -9,13 +9,14 @@ import {AddUserComponent} from "../add-user/add-user.component";
 import {EditUserComponent} from "../edit-user/edit-user.component";
 import {DeleteUserComponent} from "../delete-user/delete-user.component";
 
+
 @Component({
     selector: 'app-list',
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss']
 })
 
-export class ListComponent implements OnInit, OnDestroy {
+export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
     pageTitle: string = 'Users';
     displayedColumns = ['id', 'name', 'email', 'created_at', 'options'];
     dialogRef: MatDialogRef<DialogResultComponent>;
@@ -40,9 +41,18 @@ export class ListComponent implements OnInit, OnDestroy {
         );
     }
 
+    ngAfterViewInit() {
+        this.loadData();
+        console.log('INICIO', this.dataSource);
+        // this.dataSource.paginator = this.paginator;
+    }
+
     loadData() {
         this.service.loadData().subscribe((data: any) => {
             this.dataSource = new MatTableDataSource<UserData>(data);
+            console.log('LOADDATA', this.dataSource);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
         });
     }
 

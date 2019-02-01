@@ -4,6 +4,7 @@ import {CustomValidators} from "ng2-validation";
 import {UsersService} from "../users.service";
 import {EventsManagerService} from "../../../global-service/internal-events/events-manager.service";
 import {MatDialogRef} from "@angular/material";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-user',
@@ -15,7 +16,8 @@ export class AddUserComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<AddUserComponent>,
               private fb: FormBuilder,
               private  service: UsersService,
-              private events: EventsManagerService) { }
+              private events: EventsManagerService,
+              private readonly toast: ToastrService) { }
 
   ngOnInit() {
     this.initForm();
@@ -23,7 +25,7 @@ export class AddUserComponent implements OnInit {
 
   initForm() {
       this.form = this.fb.group({
-          name: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+          name: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(30)])],
           email: [null, Validators.compose([Validators.required, CustomValidators.email])],
       });
   }
@@ -34,7 +36,11 @@ export class AddUserComponent implements OnInit {
           (item) => {
              console.log('GUARDÓ');
               this.events.publish('changed-usuario', null);
+              this.toast.success('Guardado con éxito');
               this.dialogRef.close(this.form.value);
+          },
+          () => {
+              this.toast.error('Error al guardar');
           }
       );
   }

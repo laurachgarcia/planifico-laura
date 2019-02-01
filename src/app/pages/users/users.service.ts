@@ -15,7 +15,7 @@ export class UsersService {
   }
 
   loadData() {
-    return this.api.get('api/users').pipe(share());
+    return this.api.get('api/users?where=[{"op": "eq", "field": "deleted", "value": 0}]').pipe(share());
   }
 
   save(user: IUser) {

@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUri: 'http://127.0.0.1',
+  apiUri: 'http://192.168.88.93',
   apiPort: '8000',
 };
