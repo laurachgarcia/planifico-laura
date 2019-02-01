@@ -108,6 +108,8 @@ import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
 import {ListCompaniesComponent} from './pages/companies/list-companies/list-companies.component';
 import {AddCompaniesComponent} from './pages/companies/add-companies/add-companies.component';
+import {ToastrModule} from "ngx-toastr";
+
 
 @NgModule({
     imports: [
@@ -118,6 +120,7 @@ import {AddCompaniesComponent} from './pages/companies/add-companies/add-compani
         BrowserAnimationsModule,
         AppRoutingModule,
         ChartsModule,
+        ToastrModule.forRoot(),
         CalendarModule.forRoot(),
         MaterialModule,
         AgmCoreModule.forRoot({

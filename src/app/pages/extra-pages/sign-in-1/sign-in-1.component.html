@@ -1,11 +1,11 @@
 <card [title]="'Sign in with your app id to continue'" [align]="'center'">
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field>
-      <input matInput placeholder="Username" value="">
+      <input matInput placeholder="E-mail" type="text" [formControl]="form.controls['email']">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Password" value="">
+      <input matInput placeholder="Password" type="password" [formControl]="form.controls['password']">
     </mat-form-field>
 
     <div class="text-left mb-module">
@@ -17,8 +17,8 @@
     <button mat-raised-button color="primary" type="submit" color="accent">Sign In</button>
 
     <div class="additional-info">
-      <a href="#/extra-layout/sign-up">Sign up</a>
-      <span class="divider"></span>
+      <!--<a href="#/extra-layout/sign-up">Sign up</a>
+      <span class="divider"></span>-->
       <a href="#/extra-layout/forgot">Forgot your password?</a>
     </div>
   </form>

@@ -62,13 +62,12 @@ export class AuthService {
      * Iniciar sesión
      * @returns {Observable<never>}
      */
-    public login(user: IAuthUser) {
+    public login(user: any) {
         console.log(user);
-        // const data = SHA256(user.login) + SHA256(user.password);
-        const data = {email: user.login,
+        const data = {email: user.email,
             password: user.password
         };
-        const observer = this.api.post('login', data)
+        const observer = this.api.post('api/login', data)
             .pipe(share());
         let dUser: any;
         observer.subscribe(
