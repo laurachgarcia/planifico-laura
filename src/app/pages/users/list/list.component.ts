@@ -9,6 +9,7 @@ import {AddUserComponent} from "../add-user/add-user.component";
 import {EditUserComponent} from "../edit-user/edit-user.component";
 import {DeleteUserComponent} from "../delete-user/delete-user.component";
 
+
 @Component({
     selector: 'app-list',
     templateUrl: './list.component.html',

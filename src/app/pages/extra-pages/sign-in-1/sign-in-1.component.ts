@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {CustomValidators} from "ng2-validation";
 import {AuthService} from "../../../auth/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'page-sign-in-1',
@@ -14,7 +15,8 @@ export class PageSignIn1Component implements OnInit {
 
     constructor(private readonly authService: AuthService,
                 private router: Router,
-                private readonly fb: FormBuilder) {
+                private readonly fb: FormBuilder,
+                private readonly toast: ToastrService) {
     }
 
     ngOnInit() {
@@ -32,9 +34,10 @@ export class PageSignIn1Component implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigateByUrl('default-layout/user');
+                    this.toast.success('Autorización satisfactoria');
                 },
                 error => {
-                    // this.toast.error('Error');
+                    this.toast.error('Error al ingresar');
                 },
                 () => {
                     this.form.reset();

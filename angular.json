@@ -30,7 +30,8 @@
         			"node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
 							"node_modules/angular-calendar/css/angular-calendar.css",
         			"node_modules/leaflet/dist/leaflet.css",
-        			"src/assets/sass/styles.scss"
+        			"src/assets/sass/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
 						"node_modules/chart.js/dist/Chart.min.js"

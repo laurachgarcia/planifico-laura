@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "ng2-validation";
 import {UsersService} from "../users.service";
 import {EventsManagerService} from "../../../global-service/internal-events/events-manager.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-edit-user',
@@ -19,6 +20,7 @@ export class EditUserComponent implements OnInit {
                 private  service: UsersService,
                 private fb: FormBuilder,
                 private dialogRef: MatDialogRef<ListComponent>,
+                private readonly toast: ToastrService,
                 @Inject(MAT_DIALOG_DATA) data) {
         this.data = data;
     }
@@ -40,7 +42,11 @@ export class EditUserComponent implements OnInit {
             (item) => {
                 console.log('GUARDÓ');
                 this.events.publish('changed-usuario', null);
+                this.toast.success('Guardado con éxito');
                 this.dialogRef.close(this.form.value);
+            },
+            () => {
+                this.toast.error('Error al guardar');
             }
         );
     }

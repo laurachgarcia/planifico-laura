@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 import {ListComponent} from "../list/list.component";
 import {UsersService} from "../users.service";
 import {EventsManagerService} from "../../../global-service/internal-events/events-manager.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-delete-user',
@@ -15,6 +16,7 @@ export class DeleteUserComponent implements OnInit {
     constructor(private dialogRef: MatDialogRef<ListComponent>,
                 private events: EventsManagerService,
                 private  service: UsersService,
+                private readonly toast: ToastrService,
                 @Inject(MAT_DIALOG_DATA) data) {
         this.data = data;
     }
@@ -27,7 +29,11 @@ export class DeleteUserComponent implements OnInit {
             (item) => {
                 console.log('GUARDÓ');
                 this.events.publish('changed-usuario', null);
+                this.toast.success('Eliminado con éxito');
                 this.dialogRef.close();
+            },
+            () => {
+                this.toast.error('Error al eliminar');
             }
         );
     }
