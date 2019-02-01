@@ -1,18 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {CustomValidators} from "ng2-validation";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
-  selector: 'page-sign-in-1',
-  templateUrl: './sign-in-1.component.html',
-  styleUrls: ['./sign-in-1.component.scss']
+    selector: 'page-sign-in-1',
+    templateUrl: './sign-in-1.component.html',
+    styleUrls: ['./sign-in-1.component.scss']
 })
 export class PageSignIn1Component implements OnInit {
-  constructor(private router: Router) {}
+    public form: FormGroup;
 
-  ngOnInit() { }
+    constructor(private readonly authService: AuthService,
+                private router: Router,
+                private readonly fb: FormBuilder) {
+    }
 
-  onSubmit() {
-    this.router.navigate(['/default-layout/dashboard']);
-  }
+    ngOnInit() {
+        this.form = this.fb.group({
+            email: [null, Validators.compose([Validators.required, CustomValidators.email])],
+            password: [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+        });
+    }
+
+    onSubmit() {
+        console.log(this.form.value);
+        const auth = this.form.value;
+        // this.router.navigate(['/default-layout/dashboard']);
+        this.authService.login(auth)
+            .subscribe(
+                data => {
+                    this.router.navigateByUrl('default-layout/user');
+                },
+                error => {
+                    // this.toast.error('Error');
+                },
+                () => {
+                    this.form.reset();
+                });
+    }
 }
