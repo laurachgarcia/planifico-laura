@@ -68,7 +68,7 @@ import { PageGoogleMapComponent }       from './pages/maps/google-map/google-map
 import { PageLeafletMapComponent }      from './pages/maps/leaflet-map/leaflet-map.component';
 import { PageWidgetsComponent }         from './pages/widgets/widgets.component';
 import { ListComponent }                from "./pages/users/list/list.component";
-import { CompaniesComponent }           from './pages/companies/companies.component';
+import { ListCompaniesComponent }       from "./pages/companies/list-companies/list-companies.component";
 
 const defaultRoutes: Routes = [
   { path: 'dashboard', component: PageDashboardComponent },
@@ -124,7 +124,7 @@ const defaultRoutes: Routes = [
   { path: 'form-validation', component: PageFormValidationComponent },
   { path: 'google-map', component: PageGoogleMapComponent },
   { path: 'leaflet-map', component: PageLeafletMapComponent },
-  { path: 'companies', component: CompaniesComponent },
+  { path: 'list-companies', component: ListCompaniesComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
