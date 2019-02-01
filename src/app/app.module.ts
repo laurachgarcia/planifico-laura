@@ -106,8 +106,10 @@ import {ListComponent} from "./pages/users/list/list.component";
 import {AddUserComponent} from "./pages/users/add-user/add-user.component";
 import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
-import { CompaniesComponent } from './pages/companies/companies.component';
+import {ListCompaniesComponent} from './pages/companies/list-companies/list-companies.component';
+import {AddCompaniesComponent} from './pages/companies/add-companies/add-companies.component';
 import {ToastrModule} from "ngx-toastr";
+
 
 @NgModule({
     imports: [
@@ -213,12 +215,20 @@ import {ToastrModule} from "ngx-toastr";
         AddUserComponent,
         EditUserComponent,
         DeleteUserComponent,
-        CompaniesComponent
+        ListCompaniesComponent,
+        AddCompaniesComponent
     ],
     exports: [
         MaterialModule
     ],
-    entryComponents: [DialogResultComponent, CalendarDialogComponent, AddUserComponent, EditUserComponent, DeleteUserComponent],
+    entryComponents: [
+        DialogResultComponent, 
+        CalendarDialogComponent, 
+        AddUserComponent, 
+        EditUserComponent, 
+        DeleteUserComponent,
+        AddCompaniesComponent
+    ],
     bootstrap: [AppComponent]
 
 })
