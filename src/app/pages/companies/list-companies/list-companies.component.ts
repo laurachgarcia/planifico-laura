@@ -6,6 +6,7 @@ import {MatDialog, MatDialogConfig, MatDialogRef, MatPaginator, MatSort, MatTabl
 import {SharedService} from '../../../layouts/shared-service';
 import {DialogResultComponent} from "../../material-components/dialog/dialog.component";
 import {AddCompaniesComponent} from "../add-companies/add-companies.component";
+import {EditCompaniesComponent} from "../edit-companies/edit-companies.component";
 
 @Component({
   selector: 'app-list-companies',
@@ -50,17 +51,17 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
         });
     }
 
-    /*openEdit($event) {
+    openEdit($event) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(EditUserComponent, dialogConfig);
+        let dialogRef = this.dialog.open(EditCompaniesComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
     }
 
-    openDelete($event) {
+    /*openDelete($event) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
@@ -85,7 +86,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
 }
 
 export interface CompanyData {
-    id: string;
+    id: number;
     name: string;
     description: string;
     created_at: string;

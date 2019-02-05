@@ -8,7 +8,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import {ChartsModule} from 'ng2-charts';
 import {CalendarModule} from 'angular-calendar';
 import {AgmCoreModule} from '@agm/core';
@@ -108,8 +107,8 @@ import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
 import {ListCompaniesComponent} from './pages/companies/list-companies/list-companies.component';
 import {AddCompaniesComponent} from './pages/companies/add-companies/add-companies.component';
+import {EditCompaniesComponent} from './pages/companies/edit-companies/edit-companies.component';
 import {ToastrModule} from "ngx-toastr";
-
 
 @NgModule({
     imports: [
@@ -216,7 +215,8 @@ import {ToastrModule} from "ngx-toastr";
         EditUserComponent,
         DeleteUserComponent,
         ListCompaniesComponent,
-        AddCompaniesComponent
+        AddCompaniesComponent,
+        EditCompaniesComponent
     ],
     exports: [
         MaterialModule
@@ -227,7 +227,8 @@ import {ToastrModule} from "ngx-toastr";
         AddUserComponent, 
         EditUserComponent, 
         DeleteUserComponent,
-        AddCompaniesComponent
+        AddCompaniesComponent,
+        EditCompaniesComponent
     ],
     bootstrap: [AppComponent]
 
