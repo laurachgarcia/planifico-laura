@@ -7,6 +7,7 @@ import {SharedService} from '../../../layouts/shared-service';
 import {DialogResultComponent} from "../../material-components/dialog/dialog.component";
 import {AddCompaniesComponent} from "../add-companies/add-companies.component";
 import {EditCompaniesComponent} from "../edit-companies/edit-companies.component";
+import {DeleteCompaniesComponent} from "../delete-companies/delete-companies.component";
 
 @Component({
   selector: 'app-list-companies',
@@ -61,15 +62,15 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
         });
     }
 
-    /*openDelete($event) {
+    openDelete($event) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(DeleteUserComponent, dialogConfig);
+        let dialogRef = this.dialog.open(DeleteCompaniesComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
-    }*/
+    }
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace

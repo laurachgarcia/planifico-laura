@@ -108,6 +108,7 @@ import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.compone
 import {ListCompaniesComponent} from './pages/companies/list-companies/list-companies.component';
 import {AddCompaniesComponent} from './pages/companies/add-companies/add-companies.component';
 import {EditCompaniesComponent} from './pages/companies/edit-companies/edit-companies.component';
+import { DeleteCompaniesComponent } from './pages/companies/delete-companies/delete-companies.component';
 import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
@@ -216,7 +217,8 @@ import {ToastrModule} from "ngx-toastr";
         DeleteUserComponent,
         ListCompaniesComponent,
         AddCompaniesComponent,
-        EditCompaniesComponent
+        EditCompaniesComponent,
+        DeleteCompaniesComponent
     ],
     exports: [
         MaterialModule
@@ -228,7 +230,8 @@ import {ToastrModule} from "ngx-toastr";
         EditUserComponent, 
         DeleteUserComponent,
         AddCompaniesComponent,
-        EditCompaniesComponent
+        EditCompaniesComponent,
+        DeleteCompaniesComponent
     ],
     bootstrap: [AppComponent]
 
