@@ -7,6 +7,7 @@ import {SharedService} from '../../../layouts/shared-service';
 import {DialogResultComponent} from "../../material-components/dialog/dialog.component";
 import {AddRolComponent} from "../add-rol/add-rol.component";
 import {EditRolComponent} from "../edit-rol/edit-rol.component";
+import {DeleteRolComponent} from "../delete-rol/delete-rol.component";
 
 @Component({
   selector: 'app-list-rol',
@@ -70,15 +71,15 @@ export class ListRolComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    /*openDelete($event) {
+    openDelete($event) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(DeleteUserComponent, dialogConfig);
+        let dialogRef = this.dialog.open(DeleteRolComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
-    }*/
+    }
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
