@@ -112,6 +112,7 @@ import {DeleteCompaniesComponent} from './pages/companies/delete-companies/delet
 import {ToastrModule} from "ngx-toastr";
 import {ListRolComponent} from './pages/rol/list-rol/list-rol.component';
 import {AddRolComponent} from './pages/rol/add-rol/add-rol.component';
+import {EditRolComponent} from './pages/rol/edit-rol/edit-rol.component';
 
 @NgModule({
     imports: [
@@ -222,7 +223,8 @@ import {AddRolComponent} from './pages/rol/add-rol/add-rol.component';
         EditCompaniesComponent,
         DeleteCompaniesComponent,
         ListRolComponent,
-        AddRolComponent
+        AddRolComponent,
+        EditRolComponent
     ],
     exports: [
         MaterialModule
@@ -236,7 +238,8 @@ import {AddRolComponent} from './pages/rol/add-rol/add-rol.component';
         AddCompaniesComponent,
         EditCompaniesComponent,
         DeleteCompaniesComponent,
-        AddRolComponent
+        AddRolComponent,
+        EditRolComponent
     ],
     bootstrap: [AppComponent]
 
