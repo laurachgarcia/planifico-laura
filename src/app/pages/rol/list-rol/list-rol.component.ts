@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs';
 import {MatDialog, MatDialogConfig, MatDialogRef, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {SharedService} from '../../../layouts/shared-service';
 import {DialogResultComponent} from "../../material-components/dialog/dialog.component";
+import {AddRolComponent} from "../add-rol/add-rol.component";
 
 @Component({
   selector: 'app-list-rol',
@@ -51,14 +52,14 @@ export class ListRolComponent implements OnInit, OnDestroy, AfterViewInit {
         });
     }
 
-    /*openDialog() {
-        let dialogRef = this.dialog.open(AddUserComponent);
+    openDialog() {
+        let dialogRef = this.dialog.open(AddRolComponent);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
     }
 
-    openEdit($event) {
+    /*openEdit($event) {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
