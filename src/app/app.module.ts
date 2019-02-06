@@ -8,7 +8,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpClient} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import {ChartsModule} from 'ng2-charts';
 import {CalendarModule} from 'angular-calendar';
 import {AgmCoreModule} from '@agm/core';
@@ -108,8 +107,13 @@ import {EditUserComponent} from "./pages/users/edit-user/edit-user.component";
 import {DeleteUserComponent} from "./pages/users/delete-user/delete-user.component";
 import {ListCompaniesComponent} from './pages/companies/list-companies/list-companies.component';
 import {AddCompaniesComponent} from './pages/companies/add-companies/add-companies.component';
+import {EditCompaniesComponent} from './pages/companies/edit-companies/edit-companies.component';
+import {DeleteCompaniesComponent} from './pages/companies/delete-companies/delete-companies.component';
 import {ToastrModule} from "ngx-toastr";
-
+import {ListRolComponent} from './pages/rol/list-rol/list-rol.component';
+import {AddRolComponent} from './pages/rol/add-rol/add-rol.component';
+import {EditRolComponent} from './pages/rol/edit-rol/edit-rol.component';
+import {DeleteRolComponent} from './pages/rol/delete-rol/delete-rol.component';
 
 @NgModule({
     imports: [
@@ -216,7 +220,13 @@ import {ToastrModule} from "ngx-toastr";
         EditUserComponent,
         DeleteUserComponent,
         ListCompaniesComponent,
-        AddCompaniesComponent
+        AddCompaniesComponent,
+        EditCompaniesComponent,
+        DeleteCompaniesComponent,
+        ListRolComponent,
+        AddRolComponent,
+        EditRolComponent,
+        DeleteRolComponent
     ],
     exports: [
         MaterialModule
@@ -227,7 +237,12 @@ import {ToastrModule} from "ngx-toastr";
         AddUserComponent, 
         EditUserComponent, 
         DeleteUserComponent,
-        AddCompaniesComponent
+        AddCompaniesComponent,
+        EditCompaniesComponent,
+        DeleteCompaniesComponent,
+        AddRolComponent,
+        EditRolComponent,
+        DeleteRolComponent
     ],
     bootstrap: [AppComponent]
 
