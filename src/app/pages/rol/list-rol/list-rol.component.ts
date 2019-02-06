@@ -1,31 +1,31 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {CompaniesService} from '../companies.service';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {RolService} from '../rol.service';
 import {EventsManagerService} from '../../../global-service/internal-events/events-manager.service';
 import {Subscription} from 'rxjs';
 import {MatDialog, MatDialogConfig, MatDialogRef, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {SharedService} from '../../../layouts/shared-service';
 import {DialogResultComponent} from "../../material-components/dialog/dialog.component";
-import {AddCompaniesComponent} from "../add-companies/add-companies.component";
-import {EditCompaniesComponent} from "../edit-companies/edit-companies.component";
-import {DeleteCompaniesComponent} from "../delete-companies/delete-companies.component";
+import {AddRolComponent} from "../add-rol/add-rol.component";
+import {EditRolComponent} from "../edit-rol/edit-rol.component";
+import {DeleteRolComponent} from "../delete-rol/delete-rol.component";
 
 @Component({
-  selector: 'app-list-companies',
-  templateUrl: './list-companies.component.html',
-  styleUrls: ['./list-companies.component.scss']
+  selector: 'app-list-rol',
+  templateUrl: './list-rol.component.html',
+  styleUrls: ['./list-rol.component.scss']
 })
-export class ListCompaniesComponent implements OnInit, OnDestroy {
-    pageTitle: string = 'Companies';
-    displayedColumns = ['id', 'name', 'description', 'created_at', 'options'];
+export class ListRolComponent implements OnInit, OnDestroy, AfterViewInit {
+    pageTitle: string = 'Rol';
+    displayedColumns = ['id', 'name', 'slug', 'description', 'created_at', 'options'];
     dialogRef: MatDialogRef<DialogResultComponent>;
     selectedOption: string;
-    dataSource: MatTableDataSource<CompanyData>;
+    dataSource: MatTableDataSource<RolData>;
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
 
     subscriptions: Subscription[] = [];
 
-    constructor(private service: CompaniesService,
+    constructor(private service: RolService,
                 private events: EventsManagerService,
                 private _sharedService: SharedService,
                 public dialog: MatDialog,) {
@@ -39,14 +39,23 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
         );
     }
 
+    ngAfterViewInit() {
+        this.loadData();
+        console.log('INICIO', this.dataSource);
+        // this.dataSource.paginator = this.paginator;
+    }
+
     loadData() {
         this.service.loadData().subscribe((data: any) => {
-            this.dataSource = new MatTableDataSource<CompanyData>(data);
+            this.dataSource = new MatTableDataSource<RolData>(data);
+            console.log('LOADDATA', this.dataSource);
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
         });
     }
 
     openDialog() {
-        let dialogRef = this.dialog.open(AddCompaniesComponent);
+        let dialogRef = this.dialog.open(AddRolComponent);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
@@ -56,7 +65,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(EditCompaniesComponent, dialogConfig);
+        let dialogRef = this.dialog.open(EditRolComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
@@ -66,7 +75,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(DeleteCompaniesComponent, dialogConfig);
+        let dialogRef = this.dialog.open(DeleteRolComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
@@ -86,9 +95,10 @@ export class ListCompaniesComponent implements OnInit, OnDestroy {
 
 }
 
-export interface CompanyData {
-    id: number;
+export interface RolData {
+    id: string;
     name: string;
+    slug: string;
     description: string;
     created_at: string;
 }

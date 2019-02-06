@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ApiService} from '../../auth/api.service';
 import {share, tap} from 'rxjs/operators';
 import {ICompany} from './models/companies';
@@ -15,7 +15,7 @@ export class CompaniesService {
   }
 
   loadData() {
-    return this.api.get('api/companies').pipe(share());
+    return this.api.get('api/companies?where=[{"op": "eq", "field": "deleted", "value": 0}]').pipe(share());
   }
 
   save(company: ICompany) {
