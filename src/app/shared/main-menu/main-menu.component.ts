@@ -10,8 +10,8 @@ import {AuthService} from '../../pages/auth/services/auth.service';
   templateUrl: 'main-menu.component.html',
   styleUrls: ['main-menu.component.scss']
 })
-export class MainMenuComponent {
-  mainMenuItems: MainMenuItem[];
+export class MainMenuComponent implements OnInit {
+  public mainMenuItems: any[] = [];
 
   constructor(private readonly auth: AuthService, private mainMenuService: MainMenuService) {
   }
@@ -22,7 +22,7 @@ export class MainMenuComponent {
       return (route.hasOwnProperty('permissions') && route.permissions.join(',').indexOf(this.auth.user.profile) !== -1)
         || !route.hasOwnProperty('permissions');
     };
-
+console.log(filter);
     this.mainMenuItems = ROUTES.filter(filter);
   }
 

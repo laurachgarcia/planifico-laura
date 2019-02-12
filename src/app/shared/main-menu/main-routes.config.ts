@@ -1,7 +1,7 @@
-import {MainMenuItem} from './main-menu-item';
+// import {MainMenuItem} from './main-menu-item';
 
 
-export const ROUTES: MainMenuItem[] = [
+export const ROUTES = [
   {
     title: 'Main',
     icon: '',

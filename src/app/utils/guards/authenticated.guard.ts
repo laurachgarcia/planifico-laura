@@ -16,6 +16,7 @@ export class AuthenticatedGuard implements CanActivate {
     return this.auth.isAuthenticated.pipe(
       tap(status => {
         if (!status) {
+          console.log('llego a authenticated');
           this.router.navigateByUrl('auth/login');
         }
       })
