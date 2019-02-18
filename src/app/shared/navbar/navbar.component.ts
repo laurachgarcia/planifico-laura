@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
    close(event) {
     let clickedComponent = event.target;
     let items = clickedComponent.parentElement.children;
-     this.authService.logout();
+     // this.authService.logout();
 
      for (let i = 0; i < items.length; i++) {
       items[i].classList.remove('opened');
