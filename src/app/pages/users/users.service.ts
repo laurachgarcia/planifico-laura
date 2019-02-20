@@ -29,4 +29,7 @@ export class UsersService {
   delete(user: number) {
     return this.api.delete(`api/users/${user}`);
   }
+  roles() {
+    return this.api.get('api/roles?where=[{"op": "eq", "field": "deleted", "value": 0}]').pipe(share());
+  }
 }
