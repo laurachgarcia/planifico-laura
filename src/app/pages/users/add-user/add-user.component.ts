@@ -57,7 +57,6 @@ export class AddUserComponent implements OnInit {
   }
 
   setItem(id) {
-    console.log(id, 'prueba');
     this.form.get('role').setValue(id);
   }
 

@@ -16,6 +16,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class EditUserComponent implements OnInit {
   data: any;
+  roles: any;
   public form: FormGroup;
 
   constructor(private events: EventsManagerService,
@@ -30,13 +31,27 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
     console.log(this.data);
     this.initForm();
+    this.loadRol();
   }
 
   initForm() {
     this.form = this.fb.group({
       name: [this.data.name, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
       email: [this.data.email, Validators.compose([Validators.required, CustomValidators.email])],
+      rolesAutocomplete: [null],
+      role: [null]
     });
+  }
+
+  loadRol() {
+    this.service.roles().subscribe((data: any) => {
+      this.roles = data;
+      console.log(this.roles);
+    });
+  }
+
+  setItem(id) {
+    this.form.get('role').setValue(id);
   }
 
   save(form) {
