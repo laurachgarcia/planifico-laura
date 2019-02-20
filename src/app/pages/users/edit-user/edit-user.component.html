@@ -7,13 +7,22 @@
                 <input matInput type="text" placeholder="Name" [formControl]="form.controls['name']">
             </mat-form-field>
         </div>
-
         <div class="col-md-6">
             <mat-form-field class="mat-icon-left">
                 <mat-icon matPrefix>email</mat-icon>
                 <input matInput type="email" placeholder="E-mail" [formControl]="form.controls['email']">
             </mat-form-field>
         </div>
+      <div class="col-md-6">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="form.controls['rolesAutocomplete']" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of roles" [value]="option.name" (onSelectionChange)="setItem(option.id)">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
     </div>
     <div class="text-right">
         <button mat-raised-button color="primary" (click)="close()">Close</button>

@@ -10,13 +10,15 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {DeleteUserComponent} from './delete-user/delete-user.component';
 import {AuthinterceptorProvider} from '../../global-service/auth.interceptor';
 import {MaterialCDKModule} from '../../material-cdk/material-cdk.module';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
     ReactiveFormsModule,
-    MaterialCDKModule
+    MaterialCDKModule,
+    MatAutocompleteModule
   ],
   declarations: [ListComponent, AddUserComponent, EditUserComponent, DeleteUserComponent],
   exports: [ListComponent, AddUserComponent, EditUserComponent, DeleteUserComponent],
