@@ -36,10 +36,10 @@ export class EditUserComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      name: [this.data.name, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
-      email: [this.data.email, Validators.compose([Validators.required, CustomValidators.email])],
-      rolesAutocomplete: [null],
-      role: [null]
+      name: [this.data.name, [Validators.required]],
+      email: [this.data.email, [Validators.required]],
+      rolesAutocomplete: [this.data.role_name, [Validators.required]],
+      role: [this.data.role_id]
     });
   }
 

@@ -27,6 +27,12 @@
         <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
     </ng-container>
 
+  <!-- Name Column -->
+    <ng-container matColumnDef="role_name">
+        <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.role_name}} </mat-cell>
+    </ng-container>
+
     <!-- Name Column -->
     <ng-container matColumnDef="created_at">
         <mat-header-cell *matHeaderCellDef> Date Create </mat-header-cell>

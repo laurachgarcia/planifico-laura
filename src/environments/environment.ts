@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   api: {
     url: 'http://192.168.88.93',
-    port: 8000
+    port: 8001
   }
 };
 

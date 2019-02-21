@@ -16,9 +16,9 @@ import {SharedService} from '../../../layouts/shared-service';
     styleUrls: ['./list.component.scss']
 })
 
-export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ListComponent implements OnInit, OnDestroy {
     pageTitle = 'Users';
-    displayedColumns = ['id', 'name', 'email', 'created_at', 'options'];
+    displayedColumns = ['id', 'name', 'email', 'role_name', 'created_at', 'options'];
     dialogRef: MatDialogRef<DialogResultComponent>;
     selectedOption: string;
     dataSource: MatTableDataSource<UserData>;
@@ -41,12 +41,6 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
         );
     }
 
-    ngAfterViewInit() {
-        this.loadData();
-        console.log('INICIO', this.dataSource);
-        // this.dataSource.paginator = this.paginator;
-    }
-
     loadData() {
         this.service.loadData().subscribe((data: any) => {
             this.dataSource = new MatTableDataSource<UserData>(data);
@@ -57,7 +51,7 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     openDialog() {
-        let dialogRef = this.dialog.open(AddUserComponent);
+        const dialogRef = this.dialog.open(AddUserComponent);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
@@ -67,7 +61,7 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(EditUserComponent, dialogConfig);
+        const dialogRef = this.dialog.open(EditUserComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
@@ -77,7 +71,7 @@ export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.data = {...$event};
-        let dialogRef = this.dialog.open(DeleteUserComponent, dialogConfig);
+        const dialogRef = this.dialog.open(DeleteUserComponent, dialogConfig);
         dialogRef.afterClosed().subscribe(result => {
             this.selectedOption = result;
         });
