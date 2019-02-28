@@ -1,51 +1,33 @@
 <div class="row">
-  <div class="col-md-6 col-xl-3">
-    <app-card [bgColor]="'danger'" class="info-card">
-      <div class="title text-uppercase">Orders</div>
-      <div class="count">2,145</div>
-      <app-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+17%</app-badge> <small>from previous period</small>
-      <mat-icon>shopping_basket</mat-icon>
-    </app-card>
-  </div>
-
-  <div class="col-md-6 col-xl-3">
-    <app-card [bgColor]="'warning'" class="info-card">
-      <div class="title text-uppercase">Revenue</div>
-      <div class="count">$ 50,24</div>
-      <small>11750</small>
-      <mat-icon>equalizer</mat-icon>
-    </app-card>
-  </div>
-
-  <div class="col-md-6 col-xl-3">
-    <app-card [bgColor]="'info'" class="info-card">
-      <div class="title text-uppercase">Products</div>
-      <div class="count">2,543</div>
-      <app-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+210</app-badge>
-      <mat-icon>monetization_on</mat-icon>
-    </app-card>
-  </div>
-
-  <div class="col-md-6 col-xl-3">
-    <app-card [bgColor]="'success'" class="info-card">
-      <div class="title text-uppercase">Sold</div>
-      <div class="count">1,005</div>
-      <app-badge [customColor]="'rgba(255,255,255,0.3)'" [borderRadius]="false">+24%</app-badge>
-      <mat-icon>donut_large</mat-icon>
-    </app-card>
-  </div>
-
   <div class="col-lg-8">
-    <app-card title="Audience Overview">
+    <app-card title="Diagrama FTE">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-select placeholder="Seleccione Compañia" [formControl]="form.controls['company']">
+              <mat-option *ngFor="let c of companies" [value]="c.id" (onSelectionChange)="setItem(c.id)">
+                {{ c.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-select placeholder="Seleccione Contracto" [formControl]="form.controls['contract']">
+              <mat-option *ngFor="let c of contracts" [value]="c.id" (onSelectionChange)="loadGraphic(c.id)">
+                {{ c.cod_contract }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
       <canvas
         baseChart
-        [datasets]="lineChartData"
-        [labels]="lineChartLabels"
-        [options]="lineChartOptions"
-        [colors]="lineChartColors"
-        [legend]="lineChartLegend"
-        [chartType]="lineChartType"
-      ></canvas>
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
     </app-card>
   </div>
 
@@ -53,17 +35,14 @@
     <app-card title="Development">
       <canvas
         baseChart
-        [datasets]="radarChartData"
-        [labels]="radarChartLabels"
-        [chartType]="radarChartType"
-        [colors]="radarChartColors"
-        width="100%"
-        height="100%"
-      ></canvas>
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"></canvas>
     </app-card>
   </div>
 </div>
-
 <div class="row">
   <div class="col-lg-6">
     <app-card [title]="'Users'">
